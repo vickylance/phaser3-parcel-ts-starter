@@ -10,14 +10,11 @@ class Game extends Phaser.Scene {
     super({ key: 'Game' });
   }
 
-  preload() {
-  }
+  preload() {}
 
-  create() {
-  }
+  create() {}
 
-  update() {
-  }
+  update() {}
 }
 
 export default Game;
