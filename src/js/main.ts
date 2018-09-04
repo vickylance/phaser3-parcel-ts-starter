@@ -23,14 +23,11 @@ Images = Object.assign(..._iterate(Images, ''));
 
 gameScene.preload = function() {
   // load images
-  console.log(Images);
+  // console.log(Images);
   this.load.image('background', Images['background']);
   this.load.image('dragon', Images['dragon']);
   this.load.image('player', Images['player']);
   this.load.image('treasure', Images['treasure']);
-  // this.game.scale.pageAlignHorizontally = true;
-  // this.game.scale.pageAlignVertically = true;
-  // this.game.scale.refresh();
 };
 
 gameScene.create = function() {
