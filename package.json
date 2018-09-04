@@ -1,7 +1,7 @@
 {
   "name": "phaser3-simple-template",
   "scripts": {
-    "start": "parcel src/index.html --open",
+    "start": "parcel ./src/index.html --open",
     "build": "parcel build src/index.html",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:fix": "tslint -c tslint.json --fix 'src/**/*.ts'",
