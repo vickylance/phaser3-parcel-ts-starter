@@ -1,0 +1,28 @@
+{
+  "name": "phaser3-simple-template",
+  "scripts": {
+    "start": "parcel src/index.html --open",
+    "build": "parcel build src/index.html",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:fix": "tslint -c tslint.json --fix 'src/**/*.ts'",
+    "prettier:base": "prettier --parser typescript --single-quote",
+    "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
+    "precommit": "npm run prettier:write"
+  },
+  "license": "MIT",
+  "version": "1.0.0",
+  "devDependencies": {
+    "cssnano": "^4.1.0",
+    "husky": "^0.14.3",
+    "node-sass": "^4.9.3",
+    "prettier": "1.14.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "phaser": "^3.11.0"
+  }
+}
