@@ -35,10 +35,10 @@ gameScene.preload = function() {
 
 gameScene.create = function() {
   let bg = this.add.sprite(0, 0, 'background');
-  bg.setOrigin(0,0);
+  bg.setOrigin(0, 0);
   // player
   this.player = this.add.sprite(40, this.sys.game.config.height / 2, 'player');
- 
+
   // scale down
   this.player.setScale(0.5);
 
