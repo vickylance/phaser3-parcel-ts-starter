@@ -10,7 +10,7 @@ A Phaser 3 Starter pack that utilizes -
 To create a new Phaser 3 project using this template.
 
 ```
-git clone https://github.com/candelibas/phaser3-parcel-starter.git my-awesome-game
+git clone https://github.com/vickylance/phaser3-parcel-ts-starter.git my-awesome-game
 cd my-awesome-game
 yarn install
 yarn start
