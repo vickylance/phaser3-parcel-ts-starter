@@ -13,7 +13,7 @@ To create a new Phaser 3 project using this template.
 ```
 git clone https://github.com/vickylance/phaser3-parcel-ts-starter.git my-awesome-game
 cd my-awesome-game
-yarn install
+yarn
 yarn start
 ```
 
