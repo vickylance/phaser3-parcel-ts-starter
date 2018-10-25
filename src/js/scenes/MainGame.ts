@@ -107,7 +107,12 @@ class MainGame extends Phaser.Scene {
       }
 
       // enemy collision
-      if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), enemy.getBounds())) {
+      if (
+        Phaser.Geom.Intersects.RectangleToRectangle(
+          this.player.getBounds(),
+          enemy.getBounds()
+        )
+      ) {
         this.gameOver();
         break;
       }

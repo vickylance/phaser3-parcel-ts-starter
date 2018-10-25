@@ -7,9 +7,7 @@ const game = new Game({
   type: Phaser.WEBGL,
   pixelArt: true,
   roundPixels: true,
-  scene: [
-    LoadGame
-  ],
+  scene: [LoadGame],
   title: 'Treasure Hunt',
   parent: 'game'
 });
