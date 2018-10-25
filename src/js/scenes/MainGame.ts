@@ -1,6 +1,6 @@
-import Phaser from "phaser";
-import { CST } from "../constants";
-import Images from "../images";
+import Phaser from 'phaser';
+import { CST } from '../constants';
+import Images from '../images';
 
 class MainGame extends Phaser.Scene {
   constructor() {
@@ -18,8 +18,11 @@ class MainGame extends Phaser.Scene {
     this.isPlayerAlive = true;
 
     // HighScores
-    this.localStorageName = "valkyrieHighScore";
-    this.highScore = localStorage.getItem(this.localStorageName) == null ? 0 : localStorage.getItem(this.localStorageName);
+    this.localStorageName = 'valkyrieHighScore';
+    this.highScore =
+      localStorage.getItem(this.localStorageName) == null
+        ? 0
+        : localStorage.getItem(this.localStorageName);
   }
 
   /**
@@ -27,10 +30,10 @@ class MainGame extends Phaser.Scene {
    */
   public preload() {
     // load images
-    this.load.image("background", Images.background);
-    this.load.image("dragon", Images.dragon);
-    this.load.image("player", Images.player);
-    this.load.image("treasure", Images.treasure);
+    this.load.image('background', Images.background);
+    this.load.image('dragon', Images.dragon);
+    this.load.image('player', Images.player);
+    this.load.image('treasure', Images.treasure);
   }
 
   /**
@@ -40,19 +43,19 @@ class MainGame extends Phaser.Scene {
     this.highScore = Math.max(this.currentScore, this.highScore);
     localStorage.setItem(this.localStorageName, this.highScore);
 
-    const bg = this.add.sprite(0, 0, "background");
+    const bg = this.add.sprite(0, 0, 'background');
     bg.setOrigin(0, 0);
     // player
     this.player = this.add.sprite(
       40,
       this.sys.game.config.height / 2,
-      "player"
+      'player'
     );
     this.player.setScale(0.5);
 
     // group of enemies
     this.enemies = this.add.group({
-      key: "dragon",
+      key: 'dragon',
       repeat: 5,
       setXY: {
         x: 110,
@@ -64,7 +67,7 @@ class MainGame extends Phaser.Scene {
     // scale enemies
     Phaser.Actions.ScaleXY(this.enemies.getChildren(), -0.5, -0.5);
     // set speeds
-    Phaser.Actions.Call(this.enemies.getChildren(), (enemy) => {
+    Phaser.Actions.Call(this.enemies.getChildren(), enemy => {
       enemy.speed = Math.random() * 2 + 1;
     });
 
@@ -72,7 +75,7 @@ class MainGame extends Phaser.Scene {
     this.treasure = this.add.sprite(
       this.sys.game.config.width - 80,
       this.sys.game.config.height / 2,
-      "treasure"
+      'treasure'
     );
     this.treasure.setScale(0.6);
   }
@@ -122,22 +125,30 @@ class MainGame extends Phaser.Scene {
   }
 
   private gameOver() {
-    console.log("HighScore: ", this.highScore);
+    console.log('HighScore: ', this.highScore);
     // flag to set player is dead
     this.isPlayerAlive = false;
 
     // shake the camera
     this.cameras.main.shake(500);
-  
+
     // fade camera
-    this.time.delayedCall(250, () => {
-      this.cameras.main.fade(250);
-    }, []);
+    this.time.delayedCall(
+      250,
+      () => {
+        this.cameras.main.fade(250);
+      },
+      []
+    );
 
     // restart game
-    this.time.delayedCall(500, () => {
-      this.scene.restart();
-    }, []);
+    this.time.delayedCall(
+      500,
+      () => {
+        this.scene.restart();
+      },
+      []
+    );
   }
 }
 

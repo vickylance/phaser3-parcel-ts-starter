@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import { CST } from "../constants";
-import FlappyGame from "./FlappyGame";
-import MainGame from "./MainGame";
+import { CST } from '../constants';
+import FlappyGame from './FlappyGame';
+import MainGame from './MainGame';
 
 class MainMenu extends Phaser.Scene {
   constructor() {
@@ -12,7 +12,7 @@ class MainMenu extends Phaser.Scene {
    * create
    */
   public create() {
-    console.log("Hello from Main Menu");
+    console.log('Hello from Main Menu');
     // this.scene.add(CST.SCENES.GAME, MainGame);
     // this.scene.start(CST.SCENES.GAME);
     this.scene.add(CST.SCENES.FLAPPY, FlappyGame);
