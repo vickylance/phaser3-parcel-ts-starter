@@ -69,3 +69,11 @@ window.onload = function() {
   resize();
   window.addEventListener('resize', resize, false);
 };
+
+// This is for preventing re-run multiple scenes
+if (module.hot) {
+  module.hot.dispose(() => {
+    window.location.reload();
+  });
+}
+
