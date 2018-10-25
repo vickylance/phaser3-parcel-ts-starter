@@ -16,13 +16,6 @@ class MainGame extends Phaser.Scene {
     this.enemyMinY = 80;
     // player is alive
     this.isPlayerAlive = true;
-
-    // HighScores
-    this.localStorageName = 'valkyrieHighScore';
-    this.highScore =
-      localStorage.getItem(this.localStorageName) == null
-        ? 0
-        : localStorage.getItem(this.localStorageName);
   }
 
   /**
@@ -40,9 +33,6 @@ class MainGame extends Phaser.Scene {
    * create
    */
   public create() {
-    this.highScore = Math.max(this.currentScore, this.highScore);
-    localStorage.setItem(this.localStorageName, this.highScore);
-
     const bg = this.add.sprite(0, 0, 'background');
     bg.setOrigin(0, 0);
     // player
@@ -116,16 +106,15 @@ class MainGame extends Phaser.Scene {
         enemy.speed *= -1;
       }
 
-      // // enemy collision
-      // if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), enemy.getBounds())) {
-      //   this.gameOver();
-      //   break;
-      // }
+      // enemy collision
+      if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), enemy.getBounds())) {
+        this.gameOver();
+        break;
+      }
     }
   }
 
   private gameOver() {
-    console.log('HighScore: ', this.highScore);
     // flag to set player is dead
     this.isPlayerAlive = false;
 
