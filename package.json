@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.10",
+    "parcel-bundler": "^1.10.3",
     "phaser": "^3.11.0"
   }
 }

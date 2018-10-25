@@ -23,7 +23,6 @@ Images = Object.assign(..._iterate(Images, ''));
 
 gameScene.preload = function() {
   // load images
-  // console.log(Images);
   this.load.image('background', Images['background']);
   this.load.image('dragon', Images['dragon']);
   this.load.image('player', Images['player']);
