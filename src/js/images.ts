@@ -17,4 +17,4 @@ function _iterate(obj, stack) {
   return keyList;
 }
 
-export default (Images = Object.assign(..._iterate(Images, '')));
+export default Object.assign(..._iterate(Images, ''));
