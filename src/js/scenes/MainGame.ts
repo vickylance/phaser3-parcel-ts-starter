@@ -1,8 +1,17 @@
-import Phaser from 'phaser';
-import { CST } from '../constants';
-import Images from '../images';
+import { Scene, GameObjects, Actions, Geom, Types } from "phaser";
+import { CST } from "../constants";
+import Images from "../images";
 
-class MainGame extends Phaser.Scene {
+class MainGame extends Scene {
+  public playerSpeed: number;
+  public enemyMaxY: number;
+  public enemyMinY: number;
+  public highScore: number;
+  public isPlayerAlive: boolean;
+  public player: GameObjects.Sprite;
+  public treasure: GameObjects.Sprite;
+  public enemies: GameObjects.Group;
+
   constructor() {
     super({ key: CST.SCENES.GAME });
   }
@@ -23,29 +32,27 @@ class MainGame extends Phaser.Scene {
    */
   public preload() {
     // load images
-    this.load.image('background', Images.background);
-    this.load.image('dragon', Images.dragon);
-    this.load.image('player', Images.player);
-    this.load.image('treasure', Images.treasure);
+    this.load.image("background", Images.background);
+    this.load.image("dragon", Images.dragon);
+    this.load.image("player", Images.player);
+    this.load.image("treasure", Images.treasure);
   }
 
   /**
    * create
    */
   public create() {
-    const bg = this.add.sprite(0, 0, 'background');
+    const height = this.sys.game.config.height;
+    const width = this.sys.game.config.width;
+    const bg = this.add.sprite(0, 0, "background");
     bg.setOrigin(0, 0);
     // player
-    this.player = this.add.sprite(
-      40,
-      this.sys.game.config.height / 2,
-      'player'
-    );
+    this.player = this.add.sprite(40, (height as number) / 2, "player");
     this.player.setScale(0.5);
 
     // group of enemies
     this.enemies = this.add.group({
-      key: 'dragon',
+      key: "dragon",
       repeat: 5,
       setXY: {
         x: 110,
@@ -53,21 +60,26 @@ class MainGame extends Phaser.Scene {
         stepX: 80,
         stepY: 20
       }
-    });
+    } as Types.GameObjects.Group.GroupCreateConfig);
     // scale enemies
-    Phaser.Actions.ScaleXY(this.enemies.getChildren(), -0.5, -0.5);
+    Actions.ScaleXY(this.enemies.getChildren(), -0.5, -0.5);
     // set speeds
-    Phaser.Actions.Call(this.enemies.getChildren(), enemy => {
-      enemy.speed = Math.random() * 2 + 1;
-    });
+    Actions.Call(
+      this.enemies.getChildren(),
+      enemy => {
+        enemy.speed = Math.random() * 2 + 1;
+      },
+      this
+    );
 
     // goal
     this.treasure = this.add.sprite(
-      this.sys.game.config.width - 80,
-      this.sys.game.config.height / 2,
-      'treasure'
+      (width as number) - 80,
+      (height as number) / 2,
+      "treasure"
     );
     this.treasure.setScale(0.6);
+    this.input.mouse.disableContextMenu();
   }
 
   /**
@@ -84,7 +96,7 @@ class MainGame extends Phaser.Scene {
 
     // treasure collision
     if (
-      Phaser.Geom.Intersects.RectangleToRectangle(
+      Geom.Intersects.RectangleToRectangle(
         this.player.getBounds(),
         this.treasure.getBounds()
       )
@@ -108,7 +120,7 @@ class MainGame extends Phaser.Scene {
 
       // enemy collision
       if (
-        Phaser.Geom.Intersects.RectangleToRectangle(
+        Geom.Intersects.RectangleToRectangle(
           this.player.getBounds(),
           enemy.getBounds()
         )
@@ -132,7 +144,8 @@ class MainGame extends Phaser.Scene {
       () => {
         this.cameras.main.fade(250);
       },
-      []
+      [],
+      this
     );
 
     // restart game
@@ -141,7 +154,8 @@ class MainGame extends Phaser.Scene {
       () => {
         this.scene.restart();
       },
-      []
+      [],
+      this
     );
   }
 }

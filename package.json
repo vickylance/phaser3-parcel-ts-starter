@@ -1,5 +1,5 @@
 {
-  "name": "phaser3-simple-template",
+  "name": "flappy-bird",
   "scripts": {
     "start": "parcel ./src/index.html --open",
     "build": "parcel build src/index.html",
@@ -14,9 +14,9 @@
   "version": "1.1.0",
   "devDependencies": {
     "cssnano": "^4.1.0",
-    "husky": "^0.14.3",
+    "husky": "^2.4.0",
     "node-sass": "^4.9.3",
-    "prettier": "1.14.2",
+    "prettier": "1.18.2",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.3"
