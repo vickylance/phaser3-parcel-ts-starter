@@ -11,7 +11,7 @@
     "precommit": "npm run prettier:write"
   },
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "devDependencies": {
     "cssnano": "^4.1.0",
     "husky": "^0.14.3",
