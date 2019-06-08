@@ -7,7 +7,7 @@
     "sourceMap": true,
     "typeRoots": [
       "./node_modules/@types",
-      "./typings",
+      "./node_modules/phaser/types",
     ],
   }
 }
