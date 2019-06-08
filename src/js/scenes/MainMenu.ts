@@ -1,6 +1,6 @@
-import Phaser from "phaser";
-import { CST } from "../constants";
-import MainGame from "./MainGame";
+import Phaser from 'phaser';
+import { CST } from '../constants';
+import MainGame from './MainGame';
 
 class MainMenu extends Phaser.Scene {
   constructor() {
@@ -11,7 +11,7 @@ class MainMenu extends Phaser.Scene {
    * create
    */
   public create() {
-    console.log("Hello from Main Menu");
+    console.log('Hello from Main Menu');
     this.scene.add(CST.SCENES.GAME, MainGame, false);
     this.scene.start(CST.SCENES.GAME);
   }

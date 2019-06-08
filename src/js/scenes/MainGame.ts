@@ -1,6 +1,6 @@
-import { Scene, GameObjects, Actions, Geom, Types } from "phaser";
-import { CST } from "../constants";
-import Images from "../images";
+import { Scene, GameObjects, Actions, Geom, Types } from 'phaser';
+import { CST } from '../constants';
+import Images from '../images';
 
 class MainGame extends Scene {
   public playerSpeed: number;
@@ -32,10 +32,10 @@ class MainGame extends Scene {
    */
   public preload() {
     // load images
-    this.load.image("background", Images.background);
-    this.load.image("dragon", Images.dragon);
-    this.load.image("player", Images.player);
-    this.load.image("treasure", Images.treasure);
+    this.load.image('background', Images.background);
+    this.load.image('dragon', Images.dragon);
+    this.load.image('player', Images.player);
+    this.load.image('treasure', Images.treasure);
   }
 
   /**
@@ -44,15 +44,15 @@ class MainGame extends Scene {
   public create() {
     const height = this.sys.game.config.height;
     const width = this.sys.game.config.width;
-    const bg = this.add.sprite(0, 0, "background");
+    const bg = this.add.sprite(0, 0, 'background');
     bg.setOrigin(0, 0);
     // player
-    this.player = this.add.sprite(40, (height as number) / 2, "player");
+    this.player = this.add.sprite(40, (height as number) / 2, 'player');
     this.player.setScale(0.5);
 
     // group of enemies
     this.enemies = this.add.group({
-      key: "dragon",
+      key: 'dragon',
       repeat: 5,
       setXY: {
         x: 110,
@@ -76,7 +76,7 @@ class MainGame extends Scene {
     this.treasure = this.add.sprite(
       (width as number) - 80,
       (height as number) / 2,
-      "treasure"
+      'treasure'
     );
     this.treasure.setScale(0.6);
     this.input.mouse.disableContextMenu();
