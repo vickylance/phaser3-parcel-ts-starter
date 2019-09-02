@@ -5,5 +5,5 @@ import { iterate } from './utils/utils';
 
 export default {
   mp3Sounds: Object.assign(...iterate(Mp3Sounds, '')),
-  oggSounds: Object.assign(...iterate(OggSounds, '')),
+  oggSounds: Object.assign(...iterate(OggSounds, ''))
 };

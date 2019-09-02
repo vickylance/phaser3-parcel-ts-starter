@@ -1,4 +1,3 @@
-
 export function iterate(obj, stack) {
   const keyList = [];
   function _iterate(obj, stack) {
