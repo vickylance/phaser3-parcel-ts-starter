@@ -7,8 +7,7 @@
     "lint:fix": "tslint -c tslint.json --fix 'src/**/*.ts'",
     "prettier:base": "prettier --parser typescript --single-quote",
     "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
-    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "precommit": "npm run prettier:write"
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
   },
   "license": "MIT",
   "version": "1.1.0",
@@ -25,5 +24,10 @@
     "lodash": "^4.17.15",
     "parcel-bundler": "^1.10.3",
     "phaser": "^3.19.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier:write"
+    }
   }
 }
