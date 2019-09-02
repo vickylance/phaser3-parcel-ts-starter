@@ -5,19 +5,18 @@ const game = new Game({
   width: 640,
   height: 360,
   type: Phaser.WEBGL,
-  pixelArt: true,
-  roundPixels: true,
+  disableContextMenu: true,
   scene: [LoadGame],
   title: 'Treasure Hunt',
   parent: 'game'
 });
 
 function resize() {
-  const canvas = document.querySelector('canvas');
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  const windowRatio = windowWidth / windowHeight;
-  const gameRatio = game.config.width / game.config.height;
+  const canvas: HTMLCanvasElement = document.querySelector('canvas');
+  const windowWidth: number = window.innerWidth;
+  const windowHeight: number = window.innerHeight;
+  const windowRatio: number = windowWidth / windowHeight;
+  const gameRatio: number = game.config.width / game.config.height;
 
   if (windowRatio < gameRatio) {
     canvas.style.width = windowWidth + 'px';

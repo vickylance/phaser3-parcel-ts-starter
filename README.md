@@ -1,10 +1,11 @@
 # phaser3-parcel-ts-starter
 
 A simple Phaser 3 starter pack that utilizes -
-1) Typescript for building the game.
-2) Parcel for bundling.
-3) Tslint for linting.
-4) Prettier for code formatting.
+
+1. Typescript for building the game.
+2. Parcel for bundling.
+3. Tslint for linting.
+4. Prettier for code formatting.
 
 ## Installation & Development
 
