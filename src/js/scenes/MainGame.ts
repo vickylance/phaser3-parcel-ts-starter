@@ -58,15 +58,15 @@ class MainGame extends Scene {
         x: 110,
         y: 100,
         stepX: 80,
-        stepY: 20
-      }
+        stepY: 20,
+      },
     } as Types.GameObjects.Group.GroupCreateConfig);
     // scale enemies
     Actions.ScaleXY(this.enemies.getChildren(), -0.5, -0.5);
     // set speeds
     Actions.Call(
       this.enemies.getChildren(),
-      enemy => {
+      (enemy) => {
         enemy.speed = Math.random() * 2 + 1;
       },
       this

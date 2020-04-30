@@ -8,7 +8,7 @@ const game = new Game({
   disableContextMenu: true,
   scene: [LoadGame],
   title: 'Treasure Hunt',
-  parent: 'game'
+  parent: 'game',
 });
 
 function resize() {

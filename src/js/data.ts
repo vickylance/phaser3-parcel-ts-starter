@@ -8,6 +8,6 @@ export default {
   data: {
     json: Object.assign(...iterate(Json, '')),
     xml: Object.assign(...iterate(Xml, '')),
-    txt: Object.assign(...iterate(Text, ''))
-  }
+    txt: Object.assign(...iterate(Text, '')),
+  },
 };
